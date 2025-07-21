@@ -13,7 +13,8 @@ const Dashboard = () => {
 
     const fetchRepositories = async() => {
         try {
-            const response = await fetch(`http://localhost:3000/repo/user/${userId}`);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/repo/user/${userId}
+`);
             const data = await response.json();
             setRepositories(data.repositories);
         } catch(err) {
@@ -23,7 +24,7 @@ const Dashboard = () => {
 
     const fetchSuggestedRepositories = async() => {
         try {
-            const response = await fetch(`http://localhost:3000/repo/all`);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/repo/all`);
             const data = await response.json();
             setSuggestedRepositories(data);
             console.log(suggestedRepositories);
