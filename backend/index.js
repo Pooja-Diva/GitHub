@@ -88,7 +88,10 @@ function startServer() {
      .catch((err) => 
         console.error("Unable to connect:", err));
 
-     app.use(cors({ origin: "*" }));
+     app.use(cors({ 
+       origin: "https://github-1-ywdu.onrender.com",
+       credentials: true
+      }));
      app.use("/", mainRouter);
 
      let user = "test";
